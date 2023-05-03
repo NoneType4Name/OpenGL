@@ -7,7 +7,7 @@ project("SomeEngenie"
 set(EXECUTABLE_NAME "window")
 message("${CMAKE_PROJECT_NAME} ${CMAKE_PROJECT_VERSION}\n${CMAKE_PROJECT_DESCRIPTION}")
 find_package(OpenGL 3.3)
-add_executable(${EXECUTABLE_NAME} window.cpp)
+add_executable(${EXECUTABLE_NAME} src/window.cpp)
 add_subdirectory(dependencies/glad)
 target_link_libraries(${EXECUTABLE_NAME} glad)
 add_subdirectory("D:/main/coding/cpp/OpenGL/dependencies/glfw")

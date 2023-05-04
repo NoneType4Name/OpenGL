@@ -45,6 +45,10 @@ int main(){
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Triangle), Triangle, GL_STATIC_DRAW);
 
+    uint32_t vShader{GetShader("../shaders/vertex.glsl", GL_VERTEX_SHADER, 1)};
+    uint32_t fShader{GetShader("../shaders/fragment.glsl", GL_FRAGMENT_SHADER, 1)};
+    GLuint sProgram{LinkAndDelShaders(std::vector<uint32_t>{vShader, fShader})};
+
     glViewport(0, 0, WIDTH, HEIGHT);
     glfwSetFramebufferSizeCallback(window, ResizeWindow);
     glfwSetKeyCallback(window, UserInput);

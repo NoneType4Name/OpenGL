@@ -67,7 +67,6 @@ int main(){
 
 void ResizeWindow(GLFWwindow *wd, int32_t w, int32_t h)
 {   
-    std::cout<<"!";
     glfwGetWindowSize(wd, &WindowWidth, &WindowHeight);
     glViewport(0, 0, w, h);
     glfwSetWindowPos(wd, WIDTH/2-WindowWidth/2, HEIGHT/2-WindowHeight/2);

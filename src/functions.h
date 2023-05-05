@@ -5,8 +5,12 @@
 #include <vector>
 #ifdef _WIN32
     #include <windows.h>
+    #include <WinUser.h>
+    #include <windowsx.h>
     std::tuple<uint16_t, uint16_t> GetFullSize(){
-        return std::tuple<uint16_t, uint16_t>{GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)};
+        DEVMODE dMode;
+        EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &dMode);
+        return std::tuple<uint16_t, uint16_t>{dMode.dmPelsWidth, dMode.dmPelsHeight};
     }
     uint32_t GetShader(std::string path, GLenum shader_type, uint32_t count){
         std::ifstream shader(path);
